@@ -1,0 +1,28 @@
+{{/* Parameters */}}
+{{ $folder := .Get "folder" }}
+{{ $cols := .Get "cols" | default "3" }}
+{{ $caption := .Get "caption" | default "" }}
+
+{{ $images := sort (resources.Match (printf "%s*" $folder)) "Name" }}
+
+<div class="post-image">
+    <div class="post-image-grid" style="--grid-cols: {{ $cols }};">
+
+        {{ range $images }}
+        {{ if and .MediaType (or (eq .MediaType.SubType "jpeg") (eq .MediaType.SubType "png") (eq .MediaType.SubType
+        "webp") (eq .MediaType.SubType "jpg")) }}
+
+        {{ $thumb := .Resize "600x webp q80" }}
+
+        <figure class="post-image">
+            <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+                alt="{{ .Name }}" loading="lazy">
+        </figure>
+
+        {{ end }}
+        {{ end }}
+    </div>
+    {{if $caption }}
+    <p>{{ $caption }}</p>
+    {{ end }}
+</div>

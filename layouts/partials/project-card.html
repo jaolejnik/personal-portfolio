@@ -1,0 +1,23 @@
+{{ $projectUrl := .RelPermalink }}
+{{ $isExternal := false }}
+{{ if .Params.project_url }}
+{{ $projectUrl = .Params.project_url }}
+{{ $isExternal = true }}
+{{ end }}
+
+<article class="featured-card">
+    <a href="{{ $projectUrl }}" {{ partial "external-link-attrs.html" (dict "external" $isExternal) | safeHTMLAttr }}>
+        <div class="featured-image{{ if not .Params.main_image }} featured-no-image{{ end }}" {{ if .Params.main_image
+            }}style="background-image: url('{{ .Params.main_image }}');" {{ end }}>
+            <div class="featured-overlay">
+                <h3 class="featured-card-title">
+                    {{ .Title }}
+                    {{ if $isExternal }}<span class="external-link-icon">↗</span>{{ end }}
+                </h3>
+            </div>
+        </div>
+        {{ if .Params.summary }}
+        <p class="featured-summary">{{ .Params.summary }}</p>
+        {{ end }}
+    </a>
+</article>

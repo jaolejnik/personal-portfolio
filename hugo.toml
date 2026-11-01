@@ -1,0 +1,49 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'Jakub Olejnik'
+theme = 'yassi'
+pagination.pagerSize = 5
+
+# [services]
+#   [services.googleAnalytics]
+#     ID = "G-XXXXXXXXXX"  # Your GA4 measurement ID
+
+[params]
+  CoverImage = "/images/me_pixel.png"  # or your own image
+  CoverImageWidth = 250
+  
+  # Theme Colors
+  # Accent color used for site title underline, timeline bullets, and project cards
+  accentColor = "#47b1db"  # Light blue (default)
+  accentColorDark = "#5fc9f0"  # Lighter blue for dark mode
+  
+  # Project display mode
+  useProjectCarousel = false # or false for grid
+  projectCarouselFullWidth = false   # true to break carousel out to full viewport width
+  
+  # Search
+  enableSearch = false # Enable site search with Fuse.js
+
+  # Timeline filter
+  enableTimelineFilter = false  # true to show All / Posts / Projects filter above the timeline
+  timelineFilterStyle = "pills"  # "pills" (default) or "dropdown"
+  
+  # Timeline Starting Point (optional)
+  # timelineStart = "🚀 And so it begins..."
+  # timelineStartSubText = "Started at Techland as Junior Gameplay Programmer"  # optional
+  # timelineStartDate = "Dec 2023"  # optional
+  
+  # Social Media Links
+  [params.social]
+    github = "https://github.com/jaolejnik"
+    linkedin = "https://linkedin.com/in/jaolejnik"
+  
+  # Giscus Comments (optional)
+  [params.giscus]
+    enabled = false 
+    repo = "yourusername/your-comments-repo"
+    repoId = "R_xxxxxxxxxxxxx"
+    category = "Announcements"
+    categoryId = "DIC_xxxxxxxxxxxxx"
+    lightTheme = "light"
+    darkTheme = "dark"

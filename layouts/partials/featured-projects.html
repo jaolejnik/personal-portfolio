@@ -1,0 +1,35 @@
+{{ $projects := .projects }}
+{{ $title := .title | default "FEATURED PROJECTS" }}
+
+{{ if $projects }}
+{{ $fullWidth := and site.Params.useProjectCarousel site.Params.projectCarouselFullWidth }}
+<section class="featured-section{{ if $fullWidth }} featured-section--full-width{{ end }}">
+    {{ if site.Params.useProjectCarousel }}
+    <!-- Carousel Layout -->
+    <div class="featured-header{{ if $fullWidth }} featured-header--full-width{{ end }}">
+        <h2 class="featured-title">{{ $title }}</h2>
+        <div class="carousel-controls">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Previous">‹</button>
+            <button class="carousel-btn carousel-btn-next" aria-label="Next">›</button>
+        </div>
+    </div>
+    <div class="carousel-container{{ if $fullWidth }} carousel-container--full-width{{ end }}">
+        <div class="featured-carousel{{ if $fullWidth }} featured-carousel--full-width{{ end }}">
+            {{ range $projects }}
+            {{ partial "project-card.html" . }}
+            {{ end }}
+        </div>
+    </div>
+    {{ else }}
+    <!-- Grid Layout -->
+    <div class="featured-header">
+        <h2 class="featured-title">{{ $title }}</h2>
+    </div>
+    <div class="featured-grid">
+        {{ range $projects }}
+        {{ partial "project-card.html" . }}
+        {{ end }}
+    </div>
+    {{ end }}
+</section>
+{{ end }}
