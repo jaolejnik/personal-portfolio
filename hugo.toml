@@ -39,11 +39,15 @@ pagination.pagerSize = 5
     linkedin = "https://linkedin.com/in/jaolejnik"
   
   # Giscus Comments (optional)
-  [params.giscus]
-    enabled = false 
-    repo = "yourusername/your-comments-repo"
-    repoId = "R_xxxxxxxxxxxxx"
-    category = "Announcements"
-    categoryId = "DIC_xxxxxxxxxxxxx"
-    lightTheme = "light"
-    darkTheme = "dark"
+  # [params.giscus]
+  #  enabled = false 
+  #  repo = "yourusername/your-comments-repo"
+  #  repoId = "R_xxxxxxxxxxxxx"
+  #  category = "Announcements"
+  #  categoryId = "DIC_xxxxxxxxxxxxx"
+  #  lightTheme = "light"
+  #  darkTheme = "dark"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
